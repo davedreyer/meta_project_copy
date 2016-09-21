@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Users Courses</title>
+</head>
+<body>
+	<form action='{% url "courses:users_courses" %}' method='POST'>
+		{% csrf_token %}
+		<select name='user'>	
+			{% for x in users %}
+				<option value='{{x.id}}'>{{x.first_name}} {{x.last_name}}</option>
+			{% endfor %}
+			</select>
+		<select name='course'>
+			{% for y in courses %}
+				<option value='{{y.id}}'>{{y.name}}</option>	
+			{% endfor %}
+		</select>
+		<input type='submit' value="Add User to Course">
+		<table>
+			<tr>
+				<th>Course ID</th>
+				<th>Title</th> 
+				<th>Number of Users</th>
+			</tr>
+			{% for z in courses %}
+			<tr>
+				<td>{{z.id}}</td>
+				<td>{{z.name}}</td>
+				<td>{{z.courselinks.count}}</td>	
+			</tr>
+			{% endfor %} 
+		</table>	
+	</form>
+</body>
+</html>

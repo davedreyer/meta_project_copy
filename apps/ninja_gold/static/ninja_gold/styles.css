@@ -1,0 +1,19 @@
+.container {
+	width: 900px;
+	box-sizing: border-box;
+}
+
+.building {
+	display: inline-block;
+	width: 200px;
+	padding: 10px;
+	border: solid 1px black;
+}
+
+.activities {
+	width: 900px;
+	box-sizing: border-box;
+	padding: 10px;
+	border: solid 1px black;
+	min-height: 50px;
+}

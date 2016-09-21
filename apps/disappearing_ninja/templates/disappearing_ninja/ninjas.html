@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Disappearing Ninjas</title>
+</head>
+<body>
+{% for x in ninjas %}
+	{% load staticfiles %}
+	<img src='{% static x %}' alt='ninja_image'>
+{% endfor %}
+</body>
+</html>
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey Form</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'survey/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</link>
+</head>
+<body>
+	<div class='container'>
+		<form action='/survey/process' method='post'>
+			{% csrf_token %}
+			Your Name: 
+			<input type='text' name='name' class='form-control'/>
+			Dojo Location: 
+			<select name='location' class='form-control'>
+				<option value='Mountain View'>Mountain view</option>
+				<option value='Seattle'>Seattle</option>
+				<option value='Dallas'>Dallas</option>
+			</select>	
+			<select name='language' class='form-control'>
+				<option value='Node'>Node</option>
+				<option value='Javascript'>Javascript</option>
+				<option value='Swift'>Swift</option>
+				<option value='Ruby'>Ruby</option>
+			</select>
+			Comment (optional):
+			<textarea rows='4' name='comments' class='form-control'></textarea>
+			<input type='submit' value='Submit' class='btn'>
+		</form>
+	</div>	
+</body>
+</html>

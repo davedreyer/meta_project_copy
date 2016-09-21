@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Courses</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'courses/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</link>
+</head>
+<body>
+	<div class='container'>
+		<h2>Add a new course<h2>
+		<form action='{% url "courses:create" %}' method='post'>
+			{% csrf_token %}
+			Name:
+			<input type='text' name='name' class='form-control'/>
+			Description:
+			<textarea rows='4' name='description' class='form-control'></textarea>
+			<input type='submit' value='Add' class='btn'>
+		</form>
+		<h2>Courses<h2>
+		<table id='table'>
+			<tr>
+				<th>Course Name</th>
+				<th>Description</th> 
+				<th>Date Added</th>
+				<th>Actions</th>
+			</tr>
+			{% for x in courses %}
+			<tr>
+				<td>{{x.name}}</td>
+				<td>{{x.created_at}}</td>
+				<td>{{x.description}}</td>
+				<td><a href='{% url "courses:delete" course_id=x.id %}'>remove</a></td>
+			</tr>
+			{% endfor %} 
+		</table>	
+	</div>	
+</body>
+</html>

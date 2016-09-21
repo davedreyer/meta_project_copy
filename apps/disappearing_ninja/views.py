@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 def index(request):
-	return render(request, 'disappearing_ninja/ninjas.html')
+	return render(request, 'disappearing_ninja/index.html')
 
 def ninjas(request, color = None):
 

@@ -18,7 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^ninjas/', include('apps.disappearing_ninja.urls', namespace='ninjas')),
+    url(r'^', include('apps.disappearing_ninja.urls', namespace='ninjas')),
     url(r'^gold/', include('apps.ninja_gold.urls', namespace='gold')),
     url(r'^survey/', include('apps.survey.urls', namespace='survey')),
     url(r'^user/', include('apps.user_reg.urls', namespace='user')),
